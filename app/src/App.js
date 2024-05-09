@@ -1,99 +1,84 @@
-import { useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
-import "./App.css";
-import { auth } from "./firebase.js";
+import React from 'react';
+import { createBrowserRouter, 
+  createRoutesFromElements, 
+  Route, 
+  Link, 
+  Outlet, 
+  RouterProvider 
+} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+// Components
+import Home from './Home';
+import About from './About';
+import NavigationBar from './NavigationBar.js';
+import SignUpForm from './SignUpForm';
+import LogOut from './LogOut.js';
+
+// Styles
+import './styles/App.scss';
 
 function App() {
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
 
-  const [user, setUser] = useState({});
+  const [username, setUsername] = useState('');
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  const handleChildEvent = (data) => {
+    setUsername(data);
+    console.log('handlechildevent', data)
+  };
 
-  const register = async () => {
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        registerEmail,
-        registerPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
+  useEffect(() => {
+    // Retrieve username data (replace with your actual logic)
+    const retrievedUsername = localStorage.getItem('username'); // Example: check local storage
+    if (retrievedUsername) {
+      handleChildEvent('Username exists!'); // Pass relevant message to child
     }
-  };
+  }, []); // Empty dependency array to run only once on mount
 
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const logout = async () => {
-    await signOut(auth);
-  };
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      // Set signup as the initial route (/)
+      <Route path="/" element={<Root />} >
+        {/* <Route index element={<Root />}></Route> */}
+        {/* Login route to handle redirection after successful login */}
+        <Route path="/login" element={<SignUpForm onChildEvent={handleChildEvent} />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="logout" element={<LogOut />}></Route>
+      </Route>
+    )
+  );
 
   return (
-    <div className="App">
-      <div>
-        <h3> Register User </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setRegisterEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Password..."
-          onChange={(event) => {
-            setRegisterPassword(event.target.value);
-          }}
-        />
-
-        <button onClick={register}> Create User</button>
-      </div>
-
-      <div>
-        <h3> Login </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setLoginEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Password..."
-          onChange={(event) => {
-            setLoginPassword(event.target.value);
-          }}
-        />
-
-        <button onClick={login}> Login</button>
-      </div>
-
-      <h4> User Logged In: </h4>
-      {user?.email}
-
-      <button onClick={logout}> Sign Out </button>
+    <div id="App">
+      {username ? (
+        <div>
+          <RouterProvider router={router} /> 
+        </div>
+      ) : (
+        <div>
+          <SignUpForm onChildEvent={handleChildEvent} />
+        </div>
+      )}
     </div>
   );
+}
+
+export const Root = () => {
+  return (
+    <>
+    {/* Navigation Bar Routes */}
+      <div id="navigation-bar"> 
+        <Link to="/home">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/logout">Log Out</Link>
+      </div>
+    {/* Other Routes */}
+      <div>
+        <Outlet />
+      </div>
+    </>
+  )
 }
 
 export default App;
