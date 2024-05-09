@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // Functions are being imported from firebase library in auth directory
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, } from "firebase/auth";
 // Import firebase connection
@@ -16,6 +17,8 @@ function SignUpForm() {
 
   const [user, setUser] = useState({});
   
+  const navigate = useNavigate();
+  
   // User that is currently logged in so it remains on refresh
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -29,6 +32,7 @@ function SignUpForm() {
         registerPassword 
       );
       console.log('User that was registered was: ', user);
+      navigate('/welcome');
     } catch (error) {
       console.log('Error registering user: ', error.message);
     }
@@ -42,6 +46,7 @@ function SignUpForm() {
         loginPassword
       );
       console.log('User that just logged in: ', user);
+      navigate('/home');
     } catch (error) {
       console.log('Error when user tried to log in: ', error.message);
     }
@@ -92,5 +97,7 @@ function SignUpForm() {
     </div>
   );
 }
+
+
 
 export default SignUpForm;

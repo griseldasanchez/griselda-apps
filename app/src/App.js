@@ -12,6 +12,7 @@ import Home from './Home';
 import About from './About';
 import NavigationBar from './NavigationBar.js';
 import SignUpForm from './SignUpForm';
+import Welcome from './Welcome.js';
 
 // Styles
 import './styles/App.scss';
@@ -24,6 +25,7 @@ function App() {
         <Route index element={<SignUpForm />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/welcome" element={<Welcome />}></Route>
       </Route>
     )
   );
@@ -53,6 +55,7 @@ export const Root = () => {
         <Link to="/">Login</Link>
         <Link to="/home">Home</Link>
         <Link to="/about">About</Link>
+        {/* <Link to="/welcome">Welcome</Link> */}
       </div>
     {/* Other Routes */}
       <div>
