@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // Functions are being imported from firebase library in auth directory
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, } from "firebase/auth";
 // Import firebase connection
@@ -8,7 +8,7 @@ import { auth } from "./firebase.js";
 import "./styles/App.scss";
 import "./styles/SignUpForm.scss";
 
-function SignUpForm() {
+function SignUpForm( { onChildEvent } ) {
   // Form login/singup variables
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -17,12 +17,21 @@ function SignUpForm() {
 
   const [user, setUser] = useState({});
   
-  const navigate = useNavigate();
-  
+  // const navigate = useNavigate();
+
   // User that is currently logged in so it remains on refresh
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
+    console.log('currentUser:' + currentUser);
+    
+    onChildEvent(user?.email);
+    
   });
+
+  const handleClick = () => {
+    const message = 'This is a message from the child component! ' + user?.email;
+    onChildEvent(message); // Call the parent's callback function
+  };
 
   const register = async () => {
     try {
@@ -32,7 +41,7 @@ function SignUpForm() {
         registerPassword 
       );
       console.log('User that was registered was: ', user);
-      navigate('/welcome');
+      // navigate('/welcome');
     } catch (error) {
       console.log('Error registering user: ', error.message);
     }
@@ -46,7 +55,7 @@ function SignUpForm() {
         loginPassword
       );
       console.log('User that just logged in: ', user);
-      navigate('/home');
+      // navigate('/home');
     } catch (error) {
       console.log('Error when user tried to log in: ', error.message);
     }
@@ -58,6 +67,9 @@ function SignUpForm() {
 
   return (
     <div className="SignUpLoginForm">
+            
+      <button onClick={handleClick}>Send Message</button>
+
       <h3> Register User </h3>
       <div className="SignUpForm">
         <input placeholder="Email..."
