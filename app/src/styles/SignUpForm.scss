@@ -1,0 +1,77 @@
+// $background-color: white;
+// $background-button: navy;
+
+// .SignUpLoginForm {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: $background-color;
+//   border-radius: 20px;
+// }
+
+// .SignUpForm,
+// .LoginForm {
+//   border: 1px solid black; /* Add a border around the forms */
+//   border-radius: 10px;
+//   margin-bottom: 20px; /* Add some space between the forms */
+//   width: 50%; /* Set the width of the forms */
+// }
+
+// .password {
+
+// }
+
+// button {
+//   background-color: $background-button; /* Green */
+//   border: none;
+//   color: white;
+//   padding: 10px 20px;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   font-size: 16px;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease; /* Add a smooth transition for hover effect */
+// }
+
+// button:hover {
+//   background-color: gray;
+// }
+
+// .LoggedInUser {
+//   margin-top: 20px; /* Add some space between the forms and the logged-in user section */
+// }
+
+
+$background-color: white;
+$background-button: navy;
+
+.SignUpLoginForm {
+  background-color: $background-color;
+  width: 50%;
+  border-radius: 20px;
+  margin: auto auto;
+}
+
+.SignUpForm,
+.LoginForm {
+
+}
+
+.password {
+
+}
+
+button {
+  
+}
+
+button:hover {
+
+}
+
+.LoggedInUser {
+
+}
