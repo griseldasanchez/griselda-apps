@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/testing": "^0.20.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -39,6 +40,8 @@
     ]
   },
   "devDependencies": {
+    "jest": "^27.5.1",
+    "jest-localstorage-mock": "^2.4.26",
     "sass": "^1.77.0",
     "sass-loader": "^14.2.1",
     "webpack": "^5.91.0"

@@ -6,36 +6,30 @@ import { createBrowserRouter,
   Outlet, 
   RouterProvider 
 } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Components
 import Home from './Home';
 import About from './About';
 import NavigationBar from './NavigationBar.js';
 import SignUpForm from './SignUpForm';
-import Welcome from './Welcome.js';
-// import LoginForm from './LoginForm'; // Add LoginForm component
+import LogOut from './LogOut.js';
 
-import { useEffect } from 'react';
 // Styles
 import './styles/App.scss';
 
 function App() {
 
-  const [messageFromChild, setMessageFromChild] = useState('');
-  const [usernameExists, setUsernameExists] = useState(false); // For user existence check
+  const [username, setUsername] = useState('');
 
   const handleChildEvent = (data) => {
-    setMessageFromChild(data);
+    setUsername(data);
     console.log('handlechildevent', data)
   };
 
   useEffect(() => {
     // Retrieve username data (replace with your actual logic)
     const retrievedUsername = localStorage.getItem('username'); // Example: check local storage
-    setUsernameExists(retrievedUsername !== null);
-
-    // Optional: If the message is related to username existence
     if (retrievedUsername) {
       handleChildEvent('Username exists!'); // Pass relevant message to child
     }
@@ -45,44 +39,28 @@ function App() {
     createRoutesFromElements(
       // Set signup as the initial route (/)
       <Route path="/" element={<Root />} >
-        <Route index element={<Root />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/home" element={<Home />}></Route>
+        {/* <Route index element={<Root />}></Route> */}
         {/* Login route to handle redirection after successful login */}
         <Route path="/login" element={<SignUpForm onChildEvent={handleChildEvent} />}></Route>
-        <Route path="/welcome" element={<Welcome />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="logout" element={<LogOut />}></Route>
       </Route>
     )
   );
 
   return (
-    
-      <div id="App">
-        
-        <div id="app-body">
-        </div>
-
-      <p>Message from Child: {messageFromChild}</p>
-
-      {messageFromChild && <p>Username exists!</p>}
-
-      {messageFromChild ? (
-        // Pass user data if needed
-        
-        <div><About />
-        <RouterProvider router={router} />        
+    <div id="App">
+      {username ? (
+        <div>
+          <RouterProvider router={router} /> 
         </div>
       ) : (
-          <div>
-            <SignUpForm onChildEvent={handleChildEvent} />
-          </div>
+        <div>
+          <SignUpForm onChildEvent={handleChildEvent} />
+        </div>
       )}
-
-
-        <footer id="app-footer">
-        </footer>
-      </div>
-
+    </div>
   );
 }
 
@@ -91,10 +69,9 @@ export const Root = () => {
     <>
     {/* Navigation Bar Routes */}
       <div id="navigation-bar"> 
-        {/* <Link to="/login">Login</Link> */}
         <Link to="/home">Home</Link>
         <Link to="/about">About</Link>
-        {/* <Link to="/welcome">Welcome</Link> */}
+        <Link to="/logout">Log Out</Link>
       </div>
     {/* Other Routes */}
       <div>
