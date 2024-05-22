@@ -33,7 +33,7 @@ function App() {
     if (retrievedUsername) {
       handleChildEvent('Username exists!'); // Pass relevant message to child
     }
-  }, []); // Empty dependency array to run only once on mount
+  }, [username]); // Empty dependency array to run only once on mount
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -44,7 +44,7 @@ function App() {
         <Route path="/login" element={<SignUpForm onChildEvent={handleChildEvent} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="logout" element={<LogOut />}></Route>
+        <Route path="logout" element={<LogOut onChildEvent={handleChildEvent} />}></Route>
       </Route>
     )
   );

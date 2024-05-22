@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // Functions are being imported from firebase library in auth directory
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, } from "firebase/auth";
 // Import firebase connection
@@ -23,6 +23,10 @@ function SignUpForm( { onChildEvent } ) {
     
     onChildEvent(user?.email);
   });
+
+  useEffect(() => {
+
+  }, [user])
 
   const register = async () => {
     try {
@@ -52,8 +56,8 @@ function SignUpForm( { onChildEvent } ) {
 
   return (
     <div className="SignUpLoginForm">
-      <h3> Register User </h3>
       <div className="SignUpForm">
+      <h3> Register User </h3>
         <input placeholder="Email..."
           onChange={(event) => {
             setRegisterEmail(event.target.value);
@@ -67,8 +71,8 @@ function SignUpForm( { onChildEvent } ) {
         <button onClick={register}> Create User</button>
       </div>
 
-      <h3> Login </h3>
       <div className="LoginForm">
+      <h3> Login </h3>
         <input placeholder="Email..."
           onChange={(event) => {
             setLoginEmail(event.target.value);
