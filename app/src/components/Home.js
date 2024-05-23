@@ -5,8 +5,9 @@ function Home() {
 
   return (
     <div>
-      This is the home page.
-
+      <div>
+        This is the top area. 
+      </div>
     </div>
 
   );

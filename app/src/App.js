@@ -85,10 +85,10 @@ export const Root = () => {
     <>
     {/* Navigation Bar Routes */}
       <div id="navigation-bar"> 
-        <Link to="/home">HOME</Link>
-        <Link to="/resume">RESUME</Link>
-        <Link to="/contact">CONTACT</Link>
-        <Link to="/portfolio">PORTFOLIO</Link>
+        <Link to="/home">Home</Link>
+        <Link to="/resume">Resume</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/portfolio">Portfolio</Link>
 
         {/* <Link to="/about">ABOUT</Link>
         <Link to="/blog">BLOG</Link>
