@@ -1,0 +1,73 @@
+@import 'Variables';
+
+#contact-form {
+  font-family: inherit;
+  display: flex;
+  background-color: white;
+
+  .image-background {
+    width: 50%;
+    text-align: center;
+    padding: 5%;
+    box-sizing: border-box;
+  }
+
+  .image-background img {
+    width: 80%;
+    height: auto;
+    max-width: 80%;
+  }
+
+  .form-container {
+    margin-top: 5%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .input-group {
+    align-items: center;
+    box-sizing: border-box;
+    width: 85%;
+    padding: 2%;
+    height: calc(100%);
+
+    .field {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      margin-top: 2%;
+      font-family: inherit;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #message {
+      margin-top: 2%;
+      font-family: inherit;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      height: 20vw;
+    }
+  }
+
+  button[type="submit"] {
+    color: $colorWhite;
+    background-color: $colorGray;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+}

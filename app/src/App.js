@@ -9,16 +9,20 @@ import { createBrowserRouter,
 import { useState, useEffect } from 'react';
 
 // Components
-import Home from './Home';
-import About from './About';
+import Home from './components/Home.js';
+import About from './components/About.js';
 // eslint-disable-next-line
-import NavigationBar from './NavigationBar.js';
-import SignUpForm from './SignUpForm';
-import LogOut from './LogOut.js';
+import NavigationBar from './components/NavigationBar.js';
+import SignUpForm from './components/SignUpForm.js';
+import LogOut from './components/LogOut.js';
 
 // Styles
 import './styles/App.scss';
-import Resume from './Resume.js';
+import './styles/Resume.scss';
+import Resume from './components/Resume.js';
+import ContactForm from './components/ContactForm.js';
+import Footer from './components/Footer.js';
+import Portfolio from './components/Portfolio.js';
 
 function App() {
 
@@ -46,7 +50,9 @@ function App() {
         <Route path="/login" element={<SignUpForm onChildEvent={handleChildEvent} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/contact" element={<ContactForm />}></Route>
         <Route path="/resume" element={<Resume />}></Route>
+        <Route path="/portfolio" element={<Portfolio />}></Route>
         <Route path="logout" element={<LogOut onChildEvent={handleChildEvent} />}></Route>
       </Route>
     )
@@ -69,6 +75,7 @@ function App() {
       <div>
           <RouterProvider router={router} /> 
       </div>
+      <Footer />
     </div>
   );
 }
@@ -79,8 +86,14 @@ export const Root = () => {
     {/* Navigation Bar Routes */}
       <div id="navigation-bar"> 
         <Link to="/home">Home</Link>
-        <Link to="/about">About</Link>
         <Link to="/resume">Resume</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/portfolio">Portfolio</Link>
+
+        {/* <Link to="/about">ABOUT</Link>
+        <Link to="/blog">BLOG</Link>
+        <Link to="/learning">CONTINUOUS LEARNING</Link> */}
+
         {/* REMOVED LOGIN FORM, add back for login form */}
         {/* <Link to="/logout">Log Out</Link> */}
       </div>

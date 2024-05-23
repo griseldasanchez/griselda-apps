@@ -1,8 +1,4 @@
-$colorDarkBlue: #B3C8CF;
-$colorLightBlue: #BED7DC;
-$colorLightCream: #F1EEDC;
-$colorDarkCream: #E5DDC5;
-$colorWhite: white;
+@import 'Variables';
 
 *body {
   border: none;
@@ -10,6 +6,6 @@ $colorWhite: white;
   text-align: center;
   font-family: Lato, sans-serif;
   font-size: 0.8rem;
-  background-color: $colorDarkBlue;
   overflow: hidden;
+  overflow-y: auto; 
 }
