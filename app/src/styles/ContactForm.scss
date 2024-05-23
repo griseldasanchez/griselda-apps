@@ -8,21 +8,21 @@ $colorDarkBlue: #B3C8CF;
     font-family: inherit;
     text-align: center;
     margin: 0 auto;
-    max-width: 80%; // Adjust max-width for two columns
+    max-width: 80%; 
 
     .input-group {
       display: flex;
-      flex-wrap: wrap; // Allow elements to wrap to the next line if needed
-      justify-content: space-between; // Ensure even spacing between columns
+      flex-wrap: wrap; 
+      justify-content: space-between; 
       margin-bottom: 20px;
 
       div {
-        width: calc(50% - 5px); // Set width for each column
+        width: calc(50% - 5px); 
       }
 
       textarea {
-        width: 100%; // Set width for textarea to span both columns
-        min-height: 100px; // Set a minimum height for the textarea
+        width: 100%; 
+        min-height: 100px; 
       }
     }
 
