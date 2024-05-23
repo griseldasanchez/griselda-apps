@@ -16,6 +16,8 @@ $colorDarkBlue: #B3C8CF;
 
     label {
       display: block;
+      margin-bottom: 1%;
+      // font-weight: bold;
     }
 
     button:hover {
@@ -29,6 +31,8 @@ $colorDarkBlue: #B3C8CF;
       width: 100%;
       padding: 8px;
       box-sizing: border-box;
+      border: none;
+      border-radius: 10px;
     }
 
     button[type="submit"] {

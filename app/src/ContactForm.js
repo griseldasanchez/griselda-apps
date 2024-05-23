@@ -6,16 +6,20 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+       
         setStatus("Sending...");
+        
         const { name, email, message } = e.target.elements;
         let details = {
             name: name.value,
             email: email.value,
             message: message.value
         };
+
+        let serverUrl = window.location.hostname === 'localhost' ? 'http://localhost:3000/resume' : 'https://griseldas.web.app/resume';
         
         try {
-            let response = await fetch("http://localhost:3000/resume", {
+            let response = await fetch(serverUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json;charset=utf-8"
@@ -24,16 +28,20 @@ const ContactForm = () => {
             });
 
             if (!response.ok) {
-                throw new Error("Failed to send message. Please try again later.");
+              throw new Error("Failed to send message. Please try again later.");
             }
-
+            
             setStatus("Submit");
             let result = await response.json();
             alert(result.status);
+
+            console.log('serverURL', serverUrl);
+            
         } catch (error) {
             console.error("Error:", error);
             alert("Failed to send message. Please try again later.");
             setStatus("Submit");
+            console.log('serverURL error:', serverUrl);
         }
     };
     

@@ -47,7 +47,7 @@ router.post("/resume", (req, res) => {
     if (error) {
       res.json({ status: "ERROR" });
     } else {
-      res.json({ status: "Message Sent" });
+      res.json({ status: "Your message has been sent. Someone will contact you shortly." });
     }
   });
 });
