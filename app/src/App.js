@@ -11,12 +11,14 @@ import { useState, useEffect } from 'react';
 // Components
 import Home from './Home';
 import About from './About';
+// eslint-disable-next-line
 import NavigationBar from './NavigationBar.js';
 import SignUpForm from './SignUpForm';
 import LogOut from './LogOut.js';
 
 // Styles
 import './styles/App.scss';
+import Resume from './Resume.js';
 
 function App() {
 
@@ -44,6 +46,7 @@ function App() {
         <Route path="/login" element={<SignUpForm onChildEvent={handleChildEvent} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/resume" element={<Resume />}></Route>
         <Route path="logout" element={<LogOut onChildEvent={handleChildEvent} />}></Route>
       </Route>
     )
@@ -51,7 +54,8 @@ function App() {
 
   return (
     <div id="App">
-      {username ? (
+      {/* REMOVED LOGIN FORM, add back for login form */}
+      {/* {username ? (
         <div>
           <RouterProvider router={router} /> 
         </div>
@@ -59,7 +63,12 @@ function App() {
         <div>
           <SignUpForm onChildEvent={handleChildEvent} />
         </div>
-      )}
+      )} */}
+      
+      {/* Display navigation bar */}
+      <div>
+          <RouterProvider router={router} /> 
+      </div>
     </div>
   );
 }
@@ -71,7 +80,9 @@ export const Root = () => {
       <div id="navigation-bar"> 
         <Link to="/home">Home</Link>
         <Link to="/about">About</Link>
-        <Link to="/logout">Log Out</Link>
+        <Link to="/resume">Resume</Link>
+        {/* REMOVED LOGIN FORM, add back for login form */}
+        {/* <Link to="/logout">Log Out</Link> */}
       </div>
     {/* Other Routes */}
       <div>
