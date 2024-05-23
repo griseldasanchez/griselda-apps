@@ -91,7 +91,7 @@ export const Root = () => {
         <Link to="/resume">Resume</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/portfolio">Portfolio</Link>
-        <Link to="/articles">Articles</Link>
+        {/* <Link to="/articles">Articles</Link> */}
         <Link to="/recipes">Recipes App</Link>
 
         {/* <Link to="/about">ABOUT</Link>
