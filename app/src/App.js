@@ -9,19 +9,20 @@ import { createBrowserRouter,
 import { useState, useEffect } from 'react';
 
 // Components
-import Home from './Home';
-import About from './About';
+import Home from './components/Home.js';
+import About from './components/About.js';
 // eslint-disable-next-line
-import NavigationBar from './NavigationBar.js';
-import SignUpForm from './SignUpForm';
-import LogOut from './LogOut.js';
+import NavigationBar from './components/NavigationBar.js';
+import SignUpForm from './components/SignUpForm.js';
+import LogOut from './components/LogOut.js';
 
 // Styles
 import './styles/App.scss';
 import './styles/Resume.scss';
-import Resume from './Resume.js';
-import ContactForm from './ContactForm.js';
-import Footer from './Footer.js';
+import Resume from './components/Resume.js';
+import ContactForm from './components/ContactForm.js';
+import Footer from './components/Footer.js';
+import Portfolio from './components/Portfolio.js';
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/contact" element={<ContactForm />}></Route>
         <Route path="/resume" element={<Resume />}></Route>
+        <Route path="/portfolio" element={<Portfolio />}></Route>
         <Route path="logout" element={<LogOut onChildEvent={handleChildEvent} />}></Route>
       </Route>
     )
