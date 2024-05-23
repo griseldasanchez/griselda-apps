@@ -20,6 +20,8 @@ import LogOut from './LogOut.js';
 import './styles/App.scss';
 import './styles/Resume.scss';
 import Resume from './Resume.js';
+import ContactForm from './ContactForm.js';
+import Footer from './Footer.js';
 
 function App() {
 
@@ -47,6 +49,7 @@ function App() {
         <Route path="/login" element={<SignUpForm onChildEvent={handleChildEvent} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/contact" element={<ContactForm />}></Route>
         <Route path="/resume" element={<Resume />}></Route>
         <Route path="logout" element={<LogOut onChildEvent={handleChildEvent} />}></Route>
       </Route>
@@ -70,6 +73,7 @@ function App() {
       <div>
           <RouterProvider router={router} /> 
       </div>
+      <Footer />
     </div>
   );
 }
@@ -81,12 +85,13 @@ export const Root = () => {
       <div id="navigation-bar"> 
         <Link to="/home">HOME</Link>
         <Link to="/resume">RESUME</Link>
+        <Link to="/contact">CONTACT</Link>
+        <Link to="/portfolio">PORTFOLIO</Link>
 
         {/* <Link to="/about">ABOUT</Link>
-        <Link to="/contact">CONTACT</Link>
         <Link to="/blog">BLOG</Link>
         <Link to="/learning">CONTINUOUS LEARNING</Link> */}
-        
+
         {/* REMOVED LOGIN FORM, add back for login form */}
         {/* <Link to="/logout">Log Out</Link> */}
       </div>

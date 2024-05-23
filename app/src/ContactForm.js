@@ -16,7 +16,7 @@ const ContactForm = () => {
             message: message.value
         };
 
-        let serverUrl = window.location.hostname === 'localhost' ? 'http://localhost:3000/resume' : 'https://griseldas.web.app/resume';
+        let serverUrl = window.location.hostname === 'localhost' ? 'http://localhost:3000/contact' : 'https://griseldas.web.app/contact';
         
         try {
             let response = await fetch(serverUrl, {
@@ -46,25 +46,33 @@ const ContactForm = () => {
     };
     
     return (
-    <div id="contact-form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" required/>
-    
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" required/>
-          </div>
-          <div>
-            <label htmlFor="message">Message:</label>
-            <textarea id="message" required/>
-          </div>
+      <div id="contact-form">
+        <div className="image-background">
+          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Contact" />
         </div>
-        <button type="submit">{status}</button>
-      </form>
-    </div>
-    
+        
+
+        <form onSubmit={handleSubmit} className="form-container">
+          <div className="input-group">
+            <div className="column">
+              {/* Input fields */}
+              <div className="field">
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" required />
+              </div>
+              <div className="field">
+                <label htmlFor="email">Email:</label>
+                <input type="email" id="email" required />
+              </div>
+              <div className="field">
+                <label htmlFor="message">Message:</label>
+                <textarea id="message" required />
+              </div>
+              <button type="submit">{status}</button>
+            </div>
+          </div>
+        </form>
+      </div>    
     );
 }
 

@@ -1,3 +1,5 @@
+@import 'Variables';
+
 html, body {
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@ html, body {
 
 #navigation-bar {
   width: 100vw;
-  background-color: white;
+  background-color: $colorBeige;
   overflow: hidden;
   margin-bottom: 2%;
   
@@ -14,16 +16,15 @@ html, body {
     color: #000000;
     text-align: center;
     text-decoration: none;
-    font-weight: bold;
     cursor: pointer;
-    padding: 1.5% 4%;
+    padding: 2.5% 4%;
 
     &:first-child {
       margin-left: 0; 
     }
 
     &:hover {
-      background-color: #BED7DC; 
+      background-color: $colorWhite; 
     }
   }
 }
