@@ -1,0 +1,16 @@
+#resume {
+  height: 90vh;
+  width: 90%;
+  padding: 1% 5%;
+  border: none;
+
+  iframe {
+    border: none;
+    width: 90%;
+    height: calc(100% - 1%);
+    margin-bottom: 1%; 
+    overflow: hidden; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  }
+}
