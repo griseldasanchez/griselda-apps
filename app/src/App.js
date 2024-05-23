@@ -23,6 +23,7 @@ import Resume from './components/Resume.js';
 import ContactForm from './components/ContactForm.js';
 import Footer from './components/Footer.js';
 import Portfolio from './components/Portfolio.js';
+import Recipes from './components/Recipes.js';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
         <Route path="/resume" element={<Resume />}></Route>
         <Route path="/portfolio" element={<Portfolio />}></Route>
         <Route path="/articles" element={<Articles />}></Route>
+        <Route path="/recipes" element={<Recipes />}></Route>
         <Route path="logout" element={<LogOut onChildEvent={handleChildEvent} />}></Route>
       </Route>
     )
@@ -90,6 +92,7 @@ export const Root = () => {
         <Link to="/contact">Contact</Link>
         <Link to="/portfolio">Portfolio</Link>
         <Link to="/articles">Articles</Link>
+        <Link to="/recipes">Recipes App</Link>
 
         {/* <Link to="/about">ABOUT</Link>
         <Link to="/blog">BLOG</Link>
