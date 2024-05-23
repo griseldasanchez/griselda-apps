@@ -1,5 +1,6 @@
 import React from "react";
 import './styles/Resume.scss';
+import ContactForm from "./ContactForm";
 
 function Resume() {
 
@@ -7,6 +8,7 @@ function Resume() {
 
   return (
     <div id="resume">
+      <ContactForm />
         <iframe
           src={docUrl}
           allow="autoplay"
