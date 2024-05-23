@@ -2,6 +2,8 @@
 
 
 #footer {
+  position: relative; /* Set initial position to relative */
+  width: 100%; /* Set the width to 100% */
   background-color: $colorBeige;
   display: flex;
   flex-direction: column;
