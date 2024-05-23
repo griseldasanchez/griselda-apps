@@ -18,6 +18,7 @@ import LogOut from './LogOut.js';
 
 // Styles
 import './styles/App.scss';
+import './styles/Resume.scss';
 import Resume from './Resume.js';
 
 function App() {
@@ -78,9 +79,14 @@ export const Root = () => {
     <>
     {/* Navigation Bar Routes */}
       <div id="navigation-bar"> 
-        <Link to="/home">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/resume">Resume</Link>
+        <Link to="/home">HOME</Link>
+        <Link to="/resume">RESUME</Link>
+
+        {/* <Link to="/about">ABOUT</Link>
+        <Link to="/contact">CONTACT</Link>
+        <Link to="/blog">BLOG</Link>
+        <Link to="/learning">CONTINUOUS LEARNING</Link> */}
+        
         {/* REMOVED LOGIN FORM, add back for login form */}
         {/* <Link to="/logout">Log Out</Link> */}
       </div>
