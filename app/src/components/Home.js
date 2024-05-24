@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/Home.scss';
+import Portfolio from "./Portfolio";
 
 function Home() {
 
@@ -7,7 +8,7 @@ function Home() {
     <div id="home">
       <div className="sneakpeak">
       <h1>Hi, I'm Griselda, it's nice to meet you!</h1>
-        Here is a glimpse at my work:   
+        <Portfolio />
       </div>
     </div>
   );
