@@ -7,6 +7,7 @@
 
 /* Search Bar for Recipes */
 #search-recipes {
+  padding: 2% 0%;
   // border: 2px solid red;
 
   .recipes-searchbar {
@@ -35,10 +36,11 @@
 }
 
 .recipes-grid-container {
+  margin: 5%;
   display: grid;
   grid-template-columns: auto auto auto; /* Adjusted grid-template-columns */
   gap: 30px;
-  padding: 5% 10%;
+  padding: 0 10%;
   // border: 2px solid green;
 
   .recipe-item {

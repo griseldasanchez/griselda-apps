@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { db } from '../firebase.js';
 import { getDocs, collection } from 'firebase/firestore';
 import '../styles/Recipes.scss';
+import AddRecipe from "./AddRecipe.js";
 
 function Recipes() {
 
@@ -17,9 +18,6 @@ function Recipes() {
         id: doc.id,
       }));
       setRecipeList(filteredData
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
         .concat(filteredData)
         .concat(filteredData)
         .concat(filteredData)
@@ -45,9 +43,9 @@ function Recipes() {
         <button className="searchbar-button"> Search button </button>
       </div>
     </div>
-    
-    Recipes:
-    
+
+    <AddRecipe getRecipes={getRecipes}/>
+        
     <div className="recipes-grid-container">
       {recipeList.map((recipe) => (
       <div className="recipe-item" key={recipe.id}>
