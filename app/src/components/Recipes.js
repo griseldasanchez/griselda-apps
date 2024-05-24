@@ -1,9 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
-
 import { db } from '../firebase.js';
 import { getDocs, collection } from 'firebase/firestore';
+import '../styles/Recipes.scss';
 
 function Recipes() {
 
@@ -17,7 +16,17 @@ function Recipes() {
         ...doc.data(),
         id: doc.id,
       }));
-      setRecipeList(filteredData);
+      setRecipeList(filteredData
+        .concat(filteredData)
+        .concat(filteredData)
+        .concat(filteredData)
+        .concat(filteredData)
+        .concat(filteredData)
+        .concat(filteredData)
+        .concat(filteredData)
+        .concat(filteredData)
+        .concat(filteredData));
+      console.log(filteredData)
     } catch (err) {
       console.log('error on Portfolio tile: ', err);
     }
@@ -28,28 +37,33 @@ function Recipes() {
   }, [])
 
   return (
-    <div>
-      {recipeList.map((recipe) => (
-        <div>
-          {recipe.name} <br />
-          {recipe.cuisine} <br />
-          <ol>
-            {recipe.instructions.map((instruction) => (
-              <li>{instruction}</li>
-            ))}
-          </ol>
-          <ul>
-            {recipe.ingredients.map((ingredient) => (
-              <li>{ingredient}</li>
-            ))}
-          </ul>
-          <img src={recipe.image} />
-        </div>
-      ))}
+  <div id="recipes-app">
 
+    <div id="search-recipes">
+      <div className="recipes-searchbar">
+        <input className="searchbar" placeholder='Search Recipe Name, Description or Ingredients' ></input>
+        <button className="searchbar-button"> Search button </button>
+      </div>
     </div>
-  )
+    
+    Recipes:
+    
+    <div className="recipes-grid-container">
+      {recipeList.map((recipe) => (
+      <div className="recipe-item" key={recipe.id}>
+        <div className="recipe-image-box"> 
+          <img src={recipe.image} className="recipe-thumbnail" alt="Recipe Thumbnail" />
+        </div>
+        <div className="recipe-content">
+          <div className="recipe-name"><h3>{recipe.name}</h3></div>
+          <div className="recipe-cuisine">{recipe.cuisine}</div>
+        </div>
+      </div>
+      ))}
+    </div>
 
+  </div>
+  )
 }
 
 export default Recipes;

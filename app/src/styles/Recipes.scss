@@ -1,0 +1,72 @@
+/* Recipes App Container */
+#recipes-app {
+  overflow-x: hidden; /* hides horizontal scrollbar */
+  overflow-y: hidden; /* hides vertical scrollbar */
+  padding: 0% 1%;
+}
+
+/* Search Bar for Recipes */
+#search-recipes {
+  // border: 2px solid red;
+
+  .recipes-searchbar {
+    margin: 1% 15%;
+    display: flex;
+    
+    .searchbar {
+      width: 75%;
+      padding: 1%;
+      border: none;
+      outline: none;
+      border: 1px solid gray;
+    }
+
+    .searchbar-button {
+      width: 25%;
+      padding: 1%;
+    }
+  }
+}
+
+/* Recipe List */
+.search-header-name {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.recipes-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto; /* Adjusted grid-template-columns */
+  gap: 30px;
+  padding: 5% 10%;
+  // border: 2px solid green;
+
+  .recipe-item {
+    text-align: center;
+    // border: 2px solid blue;
+
+    .recipe-thumbnail {
+      width: 100%;
+      height: auto;
+      max-height: 400px; /* Adjusted max-height for larger thumbnail */
+      object-fit: cover;
+    }
+
+    .recipe-description {
+      margin-top: 10px;
+      height: 10vw;
+    }
+
+    .recipe-content {
+      margin-bottom: 10%;
+      // border: 2px solid red;
+
+      .recipe-name {
+
+      }
+      .recipe-cuisine{
+
+      }
+    }
+  }
+}
