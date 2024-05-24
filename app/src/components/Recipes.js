@@ -1,9 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
 import { db } from '../firebase.js';
 import { getDocs, collection } from 'firebase/firestore';
-
 import '../styles/Recipes.scss';
 
 function Recipes() {
