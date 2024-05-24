@@ -9,6 +9,9 @@ function Portfolio() {
 
   return (
     <div>
+      <p>
+        Check out some of my work: 
+      </p>
       {tiles}
     </div>
   )

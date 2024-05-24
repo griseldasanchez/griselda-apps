@@ -52,25 +52,24 @@ const ContactForm = () => {
           <img src={profilePic} alt="Contact" />
         </div>
 
-        <form onSubmit={handleSubmit} className="form-container">
+        <form onSubmit={handleSubmit} className="contact-form-container">
           <div className="input-group">
-            <div className="column">
-              {/* Input fields */}
-              <div className="field">
+            {/* <div className="column"> */}
+              <div className="contact-field">
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" required />
               </div>
-              <div className="field">
+              <div className="contact-field">
                 <label htmlFor="email">Email:</label>
                 <input type="email" id="email" required />
               </div>
-              <div className="field">
+              <div className="contact-field">
                 <label htmlFor="message">Message:</label>
                 <textarea id="message" required />
               </div>
               <button type="submit">{status}</button>
             </div>
-          </div>
+          {/* </div> */}
         </form>
       </div>    
     );

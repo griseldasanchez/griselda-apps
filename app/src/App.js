@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 
 // Components
 import Home from './components/Home.js';
-import About from './components/About.js';
+import Articles from './components/Articles.js';
 // eslint-disable-next-line
 import NavigationBar from './components/NavigationBar.js';
 import SignUpForm from './components/SignUpForm.js';
@@ -23,6 +23,7 @@ import Resume from './components/Resume.js';
 import ContactForm from './components/ContactForm.js';
 import Footer from './components/Footer.js';
 import Portfolio from './components/Portfolio.js';
+import Recipes from './components/Recipes.js';
 
 function App() {
 
@@ -48,11 +49,12 @@ function App() {
         {/* <Route index element={<Root />}></Route> */}
         {/* Login route to handle redirection after successful login */}
         <Route path="/login" element={<SignUpForm onChildEvent={handleChildEvent} />}></Route>
-        <Route path="/about" element={<About />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/contact" element={<ContactForm />}></Route>
         <Route path="/resume" element={<Resume />}></Route>
         <Route path="/portfolio" element={<Portfolio />}></Route>
+        <Route path="/articles" element={<Articles />}></Route>
+        <Route path="/recipes" element={<Recipes />}></Route>
         <Route path="logout" element={<LogOut onChildEvent={handleChildEvent} />}></Route>
       </Route>
     )
@@ -89,6 +91,8 @@ export const Root = () => {
         <Link to="/resume">Resume</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/portfolio">Portfolio</Link>
+        {/* <Link to="/articles">Articles</Link> */}
+        <Link to="/recipes">Recipes App</Link>
 
         {/* <Link to="/about">ABOUT</Link>
         <Link to="/blog">BLOG</Link>

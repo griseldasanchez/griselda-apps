@@ -5,7 +5,7 @@ function Footer() {
 
   return(
     <div id="footer">
-      Here is the footer
+      <div className="brand">© 2024 Griselda Scheutzow</div>
     </div>
   )
 }

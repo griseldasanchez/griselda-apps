@@ -3,71 +3,113 @@
 #contact-form {
   font-family: inherit;
   display: flex;
+  flex-direction: row;
   background-color: white;
+  margin: 8% auto; 
+  max-width: 1400px; 
+  // border: 2px dotted red;
 
   .image-background {
-    width: 50%;
-    text-align: center;
-    padding: 5%;
+    width: 40%;
+    text-align: center; 
     box-sizing: border-box;
-  }
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    // border: 3px solid green;
 
-  .image-background img {
-    width: 80%;
-    height: auto;
-    max-width: 80%;
+    img {
+      width: 60%;
+      max-width: 400px;
+      height: auto;
+    }
   }
-
-  .form-container {
-    margin-top: 5%;
+  
+  .contact-form-container {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-  }
+    width: 50%;
+    height: calc(100%); // inherit
+    // border: 2px solid orange;
 
-  .input-group {
-    align-items: center;
-    box-sizing: border-box;
-    width: 85%;
-    padding: 2%;
-    height: calc(100%);
-
-    .field {
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    input[type="text"],
-    input[type="email"] {
-      margin-top: 2%;
-      font-family: inherit;
-      width: 100%;
-      padding: 10px;
+    .input-group {
+      align-items: center;
       box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    #message {
-      margin-top: 2%;
-      font-family: inherit;
-      width: 100%;
-      padding: 10px;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      height: 20vw;
+      width: 90%;
+      margin-right: 10%;
+      height: calc(100%); // inherit
+      // border: 3px solid pink;
+  
+      .contact-field {
+        text-align: left;
+        margin: 2%;
+        // border: 2px solid blue;
+      }
+  
+      input[type="text"],
+      input[type="email"] {
+        font-family: inherit;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 2%;
+        margin-top: 1%;
+        // border: 2px solid purple;
+      }
+  
+      #message {
+        margin-top: 2%;
+        font-family: inherit;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        height: 10vw;
+        max-height: 300px;
+      }
+      
+      button[type="submit"] {
+        color: $colorWhite;
+        background-color: $colorGray;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
     }
   }
+}
 
-  button[type="submit"] {
-    color: $colorWhite;
-    background-color: $colorGray;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
+
+// Media query for mobile devices
+@media (max-width: 768px) {
+  #contact-form {
+    flex-direction: column; // Change to column for narrow screens
+
+    .image-background {
+      width: 100%;
+      padding: 10%;
+    }
+
+    .image-background img {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .contact-form-container {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    .input-group {
+      width: 100%;
+      padding: 0;
+      margin: 0% 10%;
+    }
   }
 }
