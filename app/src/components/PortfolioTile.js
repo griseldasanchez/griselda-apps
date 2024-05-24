@@ -15,7 +15,7 @@ function PortfolioTile() {
         ...doc.data(),
         id: doc.id,
       }));
-      setProjectList(filteredData);
+      setProjectList(filteredData.concat(filteredData));
     } catch (err) {
       console.log('error on Portfolio tile: ', err);
     }
@@ -26,7 +26,7 @@ function PortfolioTile() {
   }, [])
 
   return (
-    <div className="tiles-container">
+    <div className="porftolio-tiles-container">
       {projectList.map((project) => (
         <div className="tile" key={project.id}>
           <div className="tile-image">
