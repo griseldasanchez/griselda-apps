@@ -15,7 +15,7 @@ function PortfolioTile() {
         ...doc.data(),
         id: doc.id,
       }));
-      setProjectList(filteredData.concat(filteredData));
+      setProjectList(filteredData);
     } catch (err) {
       console.log('error on Portfolio tile: ', err);
     }

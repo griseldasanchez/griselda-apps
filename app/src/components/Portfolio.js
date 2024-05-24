@@ -1,5 +1,6 @@
 import React from "react";
 import PortfolioTile from "./PortfolioTile";
+import '../styles/Portfolio.scss';
 
 function Portfolio() {
   
@@ -9,9 +10,7 @@ function Portfolio() {
 
   return (
     <div>
-      <p>
-        Check out some of my work: 
-      </p>
+      <div className="portfolio-description">Checkout some of my work: </div>
       {tiles}
     </div>
   )
