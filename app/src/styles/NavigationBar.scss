@@ -10,8 +10,8 @@ html, body {
   top: 0; /* Stick it to the top of the viewport */
   width: 100%; /* Set the width to 100% */
   background-color: $colorBlue;
+  max-height: 5vw;
   overflow: hidden;
-  margin-bottom: 2%;
   z-index: 1000; /* Set a high z-index to ensure it appears above other content */
 
   a {
@@ -20,14 +20,14 @@ html, body {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    padding: 2.5% 4%;
+    padding: 1vw 4vw;
 
     &:first-child {
       margin-left: 0; 
     }
 
     &:hover {
-      background-color: $colorWhite; 
+      background-color: white; 
     }
   }
 }
