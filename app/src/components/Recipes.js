@@ -57,10 +57,10 @@ function Recipes() {
         <div className="recipe-content">
           <div className="recipe-name">{recipe.name}</div>
           <div className="recipe-cuisine">{recipe.cuisine}</div>
-          <div className="recipe-ingredients">{recipe.ingredients}</div>
-          <div className="recipe-instructions">{recipe.instructions}</div>
+          {/* <div className="recipe-ingredients">{recipe.ingredients}</div> */}
+          {/* <div className="recipe-instructions">{recipe.instructions}</div> */}
         </div>
-        <button onClick={() => deleteRecipe(recipe.id)}> Delete Recipe</button>
+        <button className="delete-recipe" onClick={() => deleteRecipe(recipe.id)}> Delete Recipe</button>
       </div>
       ))}
     </div>

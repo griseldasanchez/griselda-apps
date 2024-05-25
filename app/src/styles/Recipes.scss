@@ -1,14 +1,15 @@
+@import './Variables.scss';
+
 /* Recipes App Container */
 #recipes-app {
-  overflow-x: hidden; /* hides horizontal scrollbar */
-  overflow-y: hidden; /* hides vertical scrollbar */
+  overflow-x: hidden; 
+  overflow-y: hidden; 
   padding: 0% 1%;
 }
 
 /* Search Bar for Recipes */
 #search-recipes {
   padding: 2% 0%;
-  // border: 2px solid red;
 
   .recipes-searchbar {
     margin: 1% 15%;
@@ -36,52 +37,47 @@
 
 .recipes-grid-container {
   display: grid;
-  width: 94%;
-  grid-template-columns: auto auto auto; /* Adjusted grid-template-columns */
-  gap: 40px;
-  padding: 3%;
-  border: 2px solid green;
-
-  .recipe-item {
-    text-align: center;
-    height: auto;
-    max-width: 450px;
-    padding: 2%;
-    border: 2px solid blue;
-
-    .recipe-thumbnail {
-      height: 25vw;
-      max-width: 300px;
-      object-fit: cover;
-      box-sizing: border-box;
-      width: 95%;
-      // border: 2px solid red;
-    }
-
-    .recipe-content {
-      box-sizing: border-box;
-      overflow: hidden;
-      text-overflow: ellipsis; 
-      display: -webkit-box; 
-        -webkit-line-clamp: 5; 
-        -webkit-box-orient: vertical;
-      box-sizing: border-box;
-      padding: 2%;
-      // border: 2px solid orange;
-
-      .recipe-name {
-        font-size: 16px;
-        font-weight: bold;
-      }
-      .recipe-cuisine{
-
-      }
-      .recipe-ingredients {
-        
-      }
-      .recipe-instructions {
-
-      }
-    }
-  }
+  width: 80%;
+  grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr)); /* Adjusted grid-template-columns */
+  gap: 2%;
+  padding: 10%;
 }
+
+.recipe-item {
+  position: relative; /* Add position relative */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between image and content */
+  height: 100%; /* Ensure the item takes full height of the container */
+  border: 1px solid gray;
+  box-sizing: border-box;
+  max-width: 500px;
+}
+
+.recipe-thumbnail {
+  // height: 0;
+  padding: 5% 10%; /* Aspect ratio 16:9 */
+  width: 80%;
+  height: 300px; /* Adjust the maximum height as needed */
+  overflow: hidden; /* Hide any overflow */
+  object-fit: cover;
+  // border: 1px solid green;
+}
+
+.recipe-content {
+  padding: 1rem;
+}
+
+.recipe-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.delete-recipe {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: $colorBeige;
+  border: none;
+  cursor: pointer;
+}
+
