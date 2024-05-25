@@ -49,6 +49,8 @@ function Recipes() {
         <div className="recipe-content">
           <div className="recipe-name"><h3>{recipe.name}</h3></div>
           <div className="recipe-cuisine">{recipe.cuisine}</div>
+          <div className="recipe-ingredients">{recipe.ingredients}</div>
+          <div className="recipe-instructions">{recipe.instructions}</div>
         </div>
       </div>
       ))}
