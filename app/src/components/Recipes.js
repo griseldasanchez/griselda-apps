@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { db } from '../firebase.js';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
 import '../styles/Recipes.scss';
+import AddRecipe from "./AddRecipe.js";
 
 function Recipes() {
 
@@ -16,21 +17,20 @@ function Recipes() {
         ...doc.data(),
         id: doc.id,
       }));
-      setRecipeList(filteredData
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData));
+      setRecipeList(filteredData);
       console.log(filteredData)
     } catch (err) {
       console.log('error on Portfolio tile: ', err);
     }
   }
+
+
+  const deleteRecipe = async (id) => {
+    const recipeDoc = doc(db, "recipes", id);
+    await deleteDoc(recipeDoc);
+    getRecipes();
+  };
+
 
   useEffect(() => {
     getRecipes();
@@ -45,9 +45,9 @@ function Recipes() {
         <button className="searchbar-button"> Search button </button>
       </div>
     </div>
-    
-    Recipes:
-    
+
+    <AddRecipe getRecipes={getRecipes}/>
+        
     <div className="recipes-grid-container">
       {recipeList.map((recipe) => (
       <div className="recipe-item" key={recipe.id}>
@@ -55,9 +55,12 @@ function Recipes() {
           <img src={recipe.image} className="recipe-thumbnail" alt="Recipe Thumbnail" />
         </div>
         <div className="recipe-content">
-          <div className="recipe-name"><h3>{recipe.name}</h3></div>
+          <div className="recipe-name">{recipe.name}</div>
           <div className="recipe-cuisine">{recipe.cuisine}</div>
+          {/* <div className="recipe-ingredients">{recipe.ingredients}</div> */}
+          {/* <div className="recipe-instructions">{recipe.instructions}</div> */}
         </div>
+        <button className="delete-recipe" onClick={() => deleteRecipe(recipe.id)}> Delete Recipe</button>
       </div>
       ))}
     </div>

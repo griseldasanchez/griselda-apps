@@ -1,13 +1,15 @@
+@import './Variables.scss';
+
 /* Recipes App Container */
 #recipes-app {
-  overflow-x: hidden; /* hides horizontal scrollbar */
-  overflow-y: hidden; /* hides vertical scrollbar */
+  overflow-x: hidden; 
+  overflow-y: hidden; 
   padding: 0% 1%;
 }
 
 /* Search Bar for Recipes */
 #search-recipes {
-  // border: 2px solid red;
+  padding: 2% 0%;
 
   .recipes-searchbar {
     margin: 1% 15%;
@@ -15,7 +17,6 @@
     
     .searchbar {
       width: 75%;
-      padding: 1%;
       border: none;
       outline: none;
       border: 1px solid gray;
@@ -36,37 +37,49 @@
 
 .recipes-grid-container {
   display: grid;
-  grid-template-columns: auto auto auto; /* Adjusted grid-template-columns */
-  gap: 30px;
-  padding: 5% 10%;
-  // border: 2px solid green;
-
-  .recipe-item {
-    text-align: center;
-    // border: 2px solid blue;
-
-    .recipe-thumbnail {
-      width: 100%;
-      height: auto;
-      max-height: 400px; /* Adjusted max-height for larger thumbnail */
-      object-fit: cover;
-    }
-
-    .recipe-description {
-      margin-top: 10px;
-      height: 10vw;
-    }
-
-    .recipe-content {
-      margin-bottom: 10%;
-      // border: 2px solid red;
-
-      .recipe-name {
-
-      }
-      .recipe-cuisine{
-
-      }
-    }
-  }
+  width: 80%;
+  grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr)); /* Adjusted grid-template-columns */
+  gap: 2%;
+  padding: 3% 10%;
+  height: auto;
+  margin-bottom: 8%;
 }
+
+.recipe-item {
+  position: relative; /* Add position relative */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between image and content */
+  height: 100%; /* Ensure the item takes full height of the container */
+  border: 1px solid gray;
+  box-sizing: border-box;
+  max-width: 500px;
+}
+
+.recipe-thumbnail {
+  // height: 0;
+  padding: 5% 10%; /* Aspect ratio 16:9 */
+  width: 80%;
+  height: 300px; /* Adjust the maximum height as needed */
+  overflow: hidden; /* Hide any overflow */
+  object-fit: cover;
+  // border: 1px solid green;
+}
+
+.recipe-content {
+  padding: 1rem;
+}
+
+.recipe-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.delete-recipe {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: $colorBeige;
+  border: none;
+  cursor: pointer;
+}
+
