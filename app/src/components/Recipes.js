@@ -17,13 +17,7 @@ function Recipes() {
         ...doc.data(),
         id: doc.id,
       }));
-      setRecipeList(filteredData
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData)
-        .concat(filteredData));
+      setRecipeList(filteredData);
       console.log(filteredData)
     } catch (err) {
       console.log('error on Portfolio tile: ', err);
