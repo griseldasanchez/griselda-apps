@@ -16,7 +16,6 @@
     
     .searchbar {
       width: 75%;
-      padding: 1%;
       border: none;
       outline: none;
       border: 1px solid gray;
@@ -36,49 +35,49 @@
 }
 
 .recipes-grid-container {
-  margin: 2%;
   display: grid;
+  width: 94%;
   grid-template-columns: auto auto auto; /* Adjusted grid-template-columns */
-  gap: 30px;
-  padding: 0 10%;
+  gap: 40px;
+  padding: 3%;
   border: 2px solid green;
 
   .recipe-item {
     text-align: center;
     height: auto;
-    width: 25vw;
     max-width: 450px;
     padding: 2%;
     border: 2px solid blue;
 
     .recipe-thumbnail {
       height: 25vw;
-      width: 20vw;
       max-width: 300px;
       object-fit: cover;
       box-sizing: border-box;
-      border: 2px solid red;
+      width: 95%;
+      // border: 2px solid red;
     }
 
     .recipe-content {
-      border: 2px solid orange;
       box-sizing: border-box;
       overflow: hidden;
-      overflow: hidden; 
       text-overflow: ellipsis; 
       display: -webkit-box; 
         -webkit-line-clamp: 5; 
         -webkit-box-orient: vertical;
       box-sizing: border-box;
+      padding: 2%;
+      // border: 2px solid orange;
 
       .recipe-name {
-
+        font-size: 16px;
+        font-weight: bold;
       }
       .recipe-cuisine{
 
       }
       .recipe-ingredients {
-
+        
       }
       .recipe-instructions {
 

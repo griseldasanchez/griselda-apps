@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { db } from '../firebase.js';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
 import '../styles/Recipes.scss';
 import AddRecipe from "./AddRecipe.js";
 
@@ -23,6 +23,14 @@ function Recipes() {
       console.log('error on Portfolio tile: ', err);
     }
   }
+
+
+  const deleteRecipe = async (id) => {
+    const recipeDoc = doc(db, "recipes", id);
+    await deleteDoc(recipeDoc);
+    getRecipes();
+  };
+
 
   useEffect(() => {
     getRecipes();
@@ -47,11 +55,12 @@ function Recipes() {
           <img src={recipe.image} className="recipe-thumbnail" alt="Recipe Thumbnail" />
         </div>
         <div className="recipe-content">
-          <div className="recipe-name"><h3>{recipe.name}</h3></div>
+          <div className="recipe-name">{recipe.name}</div>
           <div className="recipe-cuisine">{recipe.cuisine}</div>
           <div className="recipe-ingredients">{recipe.ingredients}</div>
           <div className="recipe-instructions">{recipe.instructions}</div>
         </div>
+        <button onClick={() => deleteRecipe(recipe.id)}> Delete Recipe</button>
       </div>
       ))}
     </div>
